@@ -12,37 +12,21 @@ A comprehensive container-aware backup solution for Docker volumes with automate
 - 🔍 **Dry Run Mode** - Test operations without making changes
 - 🌐 **Multi-Context Support** - Works with multiple Docker contexts
 
-## 🚀 Quick Start
-
-```bash
-# Interactive backup with container management
-sudo ./backup.sh --host docker.example.com --user ubuntu --key ~/.ssh/id_rsa --interactive
-
-# Backup specific volumes (non-interactive)
-sudo ./backup.sh -h 192.168.1.100 -u docker -e "temp_vol,cache_vol" -d /backup/docker-volumes
-
-# Dry run to see what would happen
-sudo ./backup.sh --host docker.example.com --dry-run --interactive
-```
-
-## ⚠️ Requirements
-
-- **Root privileges required** - Script must be run as root user
-- SSH access to remote Docker host
-- rsync and Docker installed locally
-
 ## 📋 Usage Examples
 
 ```bash
 # Basic interactive backup
-sudo ./backup.sh --host myserver.com --interactive
+./backup.sh --host myserver.com
 
 # Backup with custom SSH key and destination
-sudo ./backup.sh -h 192.168.1.100 -k ~/.ssh/docker_key -d /mnt/backups
-
-# Non-interactive with auto-confirm for containers
-sudo ./backup.sh --host myserver.com --auto-confirm --non-interactive
+./backup.sh -h 192.168.1.100 -k ~/.ssh/id_rsa_public_key
 ```
+
+## ⚠️ Requirements
+
+- **Host root privileges required** - Only tested with a host root user.
+- SSH access to remote Docker host
+- **Rsync** installed locally
 
 ## 🛠️ Development Status
 
